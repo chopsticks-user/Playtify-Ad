@@ -22,19 +22,36 @@ const scenes = [
             </video>
         ),
     },
+    {
+        duration: 5000,
+        element: (
+            <video className="video" controls autoPlay muted playsInline loop>
+                <source src={introVideo} type="video/mp4" />
+            </video>
+        ),
+    },
+    {
+        duration: 5000,
+        element: (
+            <video className="video" controls autoPlay muted playsInline loop>
+                <source src={introVideo} type="video/mp4" />
+            </video>
+        ),
+    },
 ];
 
 export default function Content() {
     const [sceneIndex, setSceneIndex] = useState(0);
 
     useEffect(() => {
-        console.log(scenes.length);
-        if (scenes.length === sceneIndex) {
-            setSceneIndex(-1);
+        console.log(sceneIndex);
+
+        if (sceneIndex >= scenes.length) {
+            return null;
         }
+
         setTimeout(() => {
-            console.log(sceneIndex);
-            setSceneIndex(prev => prev + 1);
+            setSceneIndex(sceneIndex + 1);
         }, scenes[sceneIndex].duration);
     }, [sceneIndex]);
 
