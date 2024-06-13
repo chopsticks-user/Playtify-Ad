@@ -58,7 +58,6 @@ export default function Intro({ setFinished }) {
                 <div>
                     <video className="video" controls autoPlay muted playsInline loop>
                         <source src={introVideo} type="video/mp4" />
-                        Your browser does not support the video tag.
                     </video>
                 </div>
             </DeviceFrameset>
