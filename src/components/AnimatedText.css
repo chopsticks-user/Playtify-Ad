@@ -1,0 +1,90 @@
+.text-container {}
+
+.accessibility-animation {
+    display: inline-block;
+    margin: 0;
+}
+
+.accessibility-animation .middle-letters,
+.accessibility-animation .end-letters,
+.accessibility-animation .alternate-middle-letters {
+    display: inline-block;
+    overflow: hidden;
+    height: 1.5em;
+}
+
+.accessibility-animation .end-letters {
+    color: #ECECEC;
+}
+
+.accessibility-animation .middle-letters,
+.accessibility-animation .alternate-middle-letters {
+    color: #ABABAB;
+}
+
+.accessibility-animation .middle-letters {
+    animation: accessibility-middle-letters-animation 9s;
+    animation-delay: -3s;
+    max-width: 0;
+}
+
+.accessibility-animation .alternate-middle-letters {
+    animation: accessibility-alternate-middle-letters-animation 9s;
+    animation-delay: -3s;
+    max-width: 0;
+}
+
+@keyframes accessibility-alternate-middle-letters-animation {
+    0% {
+        max-width: 0;
+    }
+
+    25% {
+        max-width: 0;
+    }
+
+    50% {
+        max-width: 500px;
+    }
+
+    75% {
+        max-width: 0;
+    }
+
+    100% {
+        max-width: 0;
+    }
+}
+
+.move {
+    position: relative;
+    animation: mover-reverse 2s ease 0s forwards;
+    margin: 0;
+}
+
+.move .heading {
+    position: relative;
+    display: inline-block;
+    animation: rotate-reverse 2s ease 0s forwards;
+    margin: 0;
+}
+
+@keyframes mover-reverse {
+    0% {
+        transform: scale(1) translate(-5%, 300px) skew(0deg) rotate(90deg);
+    }
+
+    100% {
+        transform: scale(1) translate(0) skew(0deg) rotate(0deg);
+    }
+}
+
+@keyframes rotate-reverse {
+    0% {
+        transform: scale(1) translate(0px, 0px) skew(0deg) rotate(-90deg);
+    }
+
+    100% {
+        transform: scale(1) translate(0) skew(0deg) rotate(0deg);
+    }
+}

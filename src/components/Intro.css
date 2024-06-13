@@ -1,0 +1,27 @@
+.container {
+    margin: 20px;
+    flex-direction: column;
+    min-height: 900px;
+    width: 100%;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    position: absolute;
+    top: 20%;
+}
+
+.playtify-button {
+    width: 15rem;
+    height: 3rem;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playtify-logo {
+    width: 200px;
+    height: 140px;
+    margin: 20px;
+}
