@@ -2,7 +2,7 @@ import './AnimatedText.css';
 
 export default function AnimatedText() {
     return (
-        <div className="move text-container">
+        <div className="move">
             <h1 className="accessibility-animation heading">
                 <span className="end-letters">p</span><span className="alternate-middle-letters">op</span>
             </h1>

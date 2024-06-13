@@ -1,9 +1,9 @@
 import './Intro.css';
 import AnimatedText from "./AnimatedText";
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 import logo from '../assets/logo-transparent.png';
 import introVideo from '../assets/sample_15s.mp4';
+import { motion } from 'framer-motion';
 import { DeviceFrameset } from 'react-device-frameset';
 import 'react-device-frameset/styles/marvel-devices.min.css'
 
@@ -68,13 +68,21 @@ export default function Intro({ setFinished }) {
 
     return (
         <motion.div
-            className="container"
-            initial={{ top: '20%' }}
-            animate={{ top: topPosition }}
-            transition={{ duration: labelDuration / 1000, ease: 'easeInOut' }}
+            className='container'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 2.0 }}
         >
-            {logoElement}
-            <AnimatedText />
+            <motion.div
+                className="intro-container"
+                initial={{ top: '20%' }}
+                animate={{ top: topPosition }}
+                transition={{ duration: labelDuration / 1000, ease: 'easeInOut' }}
+            >
+                {logoElement}
+                <AnimatedText />
+            </motion.div>
         </motion.div>
     );
 }
