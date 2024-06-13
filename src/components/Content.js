@@ -4,7 +4,7 @@ import sampleVideo2 from "../assets/sample_12s.mp4";
 import { DeviceFrameset } from "react-device-frameset";
 import "react-device-frameset/styles/marvel-devices.min.css";
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 function Scene({ src }) {
   return (
@@ -12,7 +12,7 @@ function Scene({ src }) {
       key={src}
       initial={{ opacity: 0, x: "100%" }}
       animate={{ opacity: 1, x: "0" }}
-      exit={{ opacity: 0, x: "-100%" }}
+      //   exit={{ opacity: 0, x: "-100%" }}
       transition={{ duration: 0.5 }}
     >
       <video className="video" controls autoPlay muted playsInline loop>
