@@ -2,17 +2,17 @@ import "./Intro.css";
 import AnimatedText from "./AnimatedText";
 import React, { useEffect, useState } from "react";
 import logo from "../assets/logo-transparent.png";
-import introVideo from "../assets/sample_15s.mp4";
+import introVideo from "../assets/intro.mov";
 import { motion } from "framer-motion";
 import { DeviceFrameset } from "react-device-frameset";
 import "react-device-frameset/styles/marvel-devices.min.css";
 
 export default function Intro({ setFinished }) {
-  const introVideoDuration = 2000;
-  const animationDuration = 4000;
+  const introVideoDuration = 9000;
+  const animationDuration = 3000;
   const labelDuration = 1000;
   const logoDuration = 1000;
-  const transitionWaitDuration = 1000;
+  const transitionWaitDuration = 0;
 
   const [loading, setLoading] = useState(true);
   const [topPosition, setTopPosition] = useState("20%");

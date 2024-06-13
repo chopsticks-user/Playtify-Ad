@@ -1,10 +1,16 @@
 import "./Content.css";
-import sampleVideo1 from "../assets/sample_15s.mp4";
-import sampleVideo2 from "../assets/sample_12s.mp4";
 import { DeviceFrameset } from "react-device-frameset";
 import "react-device-frameset/styles/marvel-devices.min.css";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import sampleVideo1 from "../assets/sample_15s.mp4";
+import addSongsVideo from "../assets/add-songs.mp4";
+import genresGeneratedVideo from "../assets/genres-generated.mp4";
+import editPlaylistVideo from "../assets/edit-playlist.mp4";
+import personalizedPlaylistsVideo from "../assets/personalized-playlists.mp4";
+import filterPlaylistsVideo from "../assets/filter-playlists.mp4";
+import recommendationsVideo from "../assets/recommendations.mp4";
+import newTracksUpdatedVideo from "../assets/new-tracks-updated.mp4";
 
 function Scene({ src }) {
   return (
@@ -24,12 +30,36 @@ function Scene({ src }) {
 
 const scenes = [
   {
-    duration: 5000,
-    element: <Scene src={sampleVideo2} key={0} />,
+    duration: 4000,
+    element: <Scene src={sampleVideo1} key={0} />,
+  },
+  {
+    duration: 8000,
+    element: <Scene src={addSongsVideo} key={1} />,
   },
   {
     duration: 5000,
-    element: <Scene src={sampleVideo1} key={1} />,
+    element: <Scene src={genresGeneratedVideo} key={2} />,
+  },
+  {
+    duration: 4000,
+    element: <Scene src={editPlaylistVideo} key={3} />,
+  },
+  {
+    duration: 4000,
+    element: <Scene src={personalizedPlaylistsVideo} key={4} />,
+  },
+  {
+    duration: 7000,
+    element: <Scene src={filterPlaylistsVideo} key={5} />,
+  },
+  {
+    duration: 8000,
+    element: <Scene src={recommendationsVideo} key={6} />,
+  },
+  {
+    duration: 5000,
+    element: <Scene src={newTracksUpdatedVideo} key={7} />,
   },
 ];
 
@@ -55,7 +85,7 @@ export default function Content() {
       exit={{ opacity: 0, x: "-100%" }}
       transition={{ duration: 1.0 }}
     >
-      <DeviceFrameset device="iPhone 8" color="black">
+      <DeviceFrameset device="iPhone X" color="black">
         <AnimatePresence mode="wait">
           {scenes[sceneIndex].element}
         </AnimatePresence>
