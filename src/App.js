@@ -1,19 +1,24 @@
 import Intro from './components/Intro';
+import Content from './components/Content';
 import './App.css';
 import { useEffect, useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 
 export default function App() {
-  const [scenceFinished, setScenceFinished] = useState(false);
+  const [introFinished, setIntroFinished] = useState(false);
 
   useEffect(() => {
-    if (scenceFinished) {
+    if (introFinished) {
       console.log('Done');
     }
-  }, [scenceFinished]);
+  }, [introFinished]);
 
   return (
     <div className='app'>
-      <Intro setFinished={setScenceFinished} />
+      <AnimatePresence>
+        <Intro key={'intro'} setFinished={setIntroFinished} />
+        <Content key={'content'} />
+      </AnimatePresence>
     </div>
   );
 }

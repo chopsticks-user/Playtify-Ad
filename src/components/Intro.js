@@ -7,10 +7,14 @@ import introVideo from '../assets/sample_15s.mp4';
 import { DeviceFrameset } from 'react-device-frameset';
 import 'react-device-frameset/styles/marvel-devices.min.css'
 
-export default function Intro() {
-    const loadingDuration = 15000;
-    const [loading, setLoading] = useState(true);
+export default function Intro({ setFinished }) {
+    const introVideoDuration = 2000;
+    const animationDuration = 4000;
+    const labelDuration = 1000;
+    const logoDuration = 1000;
+    const transitionWaitDuration = 1000;
 
+    const [loading, setLoading] = useState(true);
     const [topPosition, setTopPosition] = useState('20%');
     const [logoElement, setLogoElement] = useState(
         <div
@@ -21,12 +25,11 @@ export default function Intro() {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false);
-        }, loadingDuration);
+        }, introVideoDuration);
     })
 
     useEffect(() => {
         setTimeout(() => {
-            console.log('Done');
             setTopPosition('30%');
             setTimeout(() => {
                 setLogoElement(
@@ -36,11 +39,17 @@ export default function Intro() {
                         alt="playtify-logo"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 2, ease: 'easeInOut' }}
+                        transition={{
+                            duration: logoDuration / 1000,
+                            ease: 'easeInOut'
+                        }}
                     />
-                )
-            }, 1000);
-        }, loadingDuration + 4000);
+                );
+                setTimeout(() => {
+                    setFinished(true);
+                }, logoDuration + transitionWaitDuration);
+            }, labelDuration);
+        }, introVideoDuration + animationDuration);
     }, []);
 
     if (loading) {
@@ -62,7 +71,7 @@ export default function Intro() {
             className="container"
             initial={{ top: '20%' }}
             animate={{ top: topPosition }}
-            transition={{ duration: 1, ease: 'easeInOut' }}
+            transition={{ duration: labelDuration / 1000, ease: 'easeInOut' }}
         >
             {logoElement}
             <AnimatedText />
